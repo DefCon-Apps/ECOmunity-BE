@@ -1,37 +1,41 @@
-import {Request, Response} from "express";
+import express, { Request, Response } from "express";
 
-export const getPost = (req: Request, res: Response) => {
+const boardRouter = express.Router();
+
+boardRouter.post("/getPost", (req: Request, res: Response) => {
     res.send("Func : Get Post")
-};
+});
 
-export const updatePost = (req: Request, res: Response) => {
+boardRouter.post("/updatePost", (req: Request, res: Response) => {
     res.send("Func : Update Post")
-};
+});
 
-export const deletePost = (req: Request, res: Response) => {
+boardRouter.post("/deletePost", (req: Request, res: Response) => {
     res.send("Func : Delete Post")
-};
+});
 
-export const getComment = (req: Request, res: Response) => {
+boardRouter.post("/getComment", (req: Request, res: Response) => {
     res.send("Func : Get Comment")
-};
+});
 
-export const updateComment = (req: Request, res: Response) => {
+boardRouter.post("/updateComment", (req: Request, res: Response) => {
     res.send("Func : Update Comment")
-};
+});
 
-export const deleteComment = (req: Request, res: Response) => {
+boardRouter.post("/deleteComment", (req: Request, res: Response) => {
     res.send("Func : Delete Comment")
-};
+});
 
-export const getRecommend = (req: Request, res: Response) => {
+boardRouter.post("/getRecommend", (req: Request, res: Response) => {
     res.send("Func : Get Recommend")
-};
+});
 
-export const updateRecommend = (req: Request, res: Response) => {
+boardRouter.post("/updateRecommend", (req: Request, res: Response) => {
     res.send("Func : Update Recommend")
-};
+});
 
-export const deleteRecommend = (req: Request, res: Response) => {
+boardRouter.post("/deleteRecommend", (req: Request, res: Response) => {
     res.send("Func : Delete Recommend")
-};
+});
+
+module.exports = boardRouter;

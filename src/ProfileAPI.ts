@@ -1,17 +1,19 @@
-import {Request, Response} from "express";
+import express, { Request, Response } from "express";
 
-export const getPersonalInfo = (req: Request, res: Response) => {
+const profileRouter = express.Router();
+
+profileRouter.post("getPersonalInfo", (req: Request, res: Response) => {
     res.send("Func : Get Personal Info")
-};
+});
 
-export const getPersonalImage = (req: Request, res: Response) => {
+profileRouter.post("getPersonalImage", (req: Request, res: Response) => {
     res.send("Func : Get Personal Image")
-};
+});
 
-export const updatePersonalInfo = (req: Request, res: Response) => {
+profileRouter.post("updatePersonalInfo", (req: Request, res: Response) => {
     res.send("Func : Update Personal Info")
-};
+});
 
-export const updatePersonalImage = (req: Request, res: Response) => {
+profileRouter.post("updatePersonalImage", (req: Request, res: Response) => {
     res.send("Func : Update Personal Image")
-};
+});
