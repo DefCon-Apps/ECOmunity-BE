@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 
+import * as BoardAPI from "./BoardAPI";
 import * as ProfileAPI from "./ProfileAPI";
 
 const app = express();
@@ -9,39 +10,39 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.post("/board/getPost", (req: Request, res: Response) => {
-    res.send("Func : Get Post")
+    BoardAPI.getPost(req, res);
 });
 
 app.post("/board/updatePost", (req: Request, res: Response) => {
-    res.send("Func : Update Post")
+    BoardAPI.updatePost(req, res);
 });
 
 app.post("/board/deletePost", (req: Request, res: Response) => {
-    res.send("Func : Delete Post")
+    BoardAPI.deletePost(req, res);
 });
 
 app.post("/board/getComment", (req: Request, res: Response) => {
-    res.send("Func : Get Comment")
+    BoardAPI.getComment(req, res);
 });
 
 app.post("/board/updateComment", (req: Request, res: Response) => {
-    res.send("Func : Update Comment")
+    BoardAPI.updateComment(req, res);
 });
 
 app.post("/board/deleteComment", (req: Request, res: Response) => {
-    res.send("Func : Delete Comment")
+    BoardAPI.deleteComment(req, res);
 });
 
 app.post("/board/getRecommend", (req: Request, res: Response) => {
-    res.send("Func : Get Recommend")
+    BoardAPI.getRecommend(req, res);
 });
 
 app.post("/board/updateRecommend", (req: Request, res: Response) => {
-    res.send("Func : Update Recommend")
+    BoardAPI.updateRecommend(req, res);
 });
 
 app.post("/board/deleteRecommend", (req: Request, res: Response) => {
-    res.send("Func : Delete Recommend")
+    BoardAPI.deleteRecommend(req, res);
 });
 
 app.post("/profile/getPersonalInfo", (req: Request, res: Response) => {
