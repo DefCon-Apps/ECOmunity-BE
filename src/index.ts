@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 
-import boardRouter from "./BoardAPI";
-import profileRouter from "./ProfileAPI";
+import boardRouter from "./Route/BoardAPI";
+import profileRouter from "./Route/ProfileAPI";
 
 const app = express();
 
