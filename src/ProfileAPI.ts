@@ -17,3 +17,5 @@ profileRouter.post("updatePersonalInfo", (req: Request, res: Response) => {
 profileRouter.post("updatePersonalImage", (req: Request, res: Response) => {
     res.send("Func : Update Personal Image")
 });
+
+export default profileRouter;

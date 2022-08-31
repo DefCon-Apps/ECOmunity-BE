@@ -38,4 +38,4 @@ boardRouter.post("/deleteRecommend", (req: Request, res: Response) => {
     res.send("Func : Delete Recommend")
 });
 
-module.exports = boardRouter;
+export default boardRouter;
