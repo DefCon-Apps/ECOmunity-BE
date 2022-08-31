@@ -1,5 +1,7 @@
 import express, { Request, Response } from "express";
 
+import * as ProfileAPI from "./ProfileAPI";
+
 const app = express();
 
 app.get("/", (req: Request, res: Response) => {
@@ -43,19 +45,19 @@ app.post("/board/deleteRecommend", (req: Request, res: Response) => {
 });
 
 app.post("/profile/getPersonalInfo", (req: Request, res: Response) => {
-    res.send("Func : Get Personal Info")
+    ProfileAPI.getPersonalInfo(req, res);
 });
 
 app.post("/profile/getPersonalImage", (req: Request, res: Response) => {
-    res.send("Func : Get Personal Image")
+    ProfileAPI.getPersonalImage(req, res);
 });
 
 app.post("/profile/updatePersonalInfo", (req: Request, res: Response) => {
-    res.send("Func : Update Personal Info")
+    ProfileAPI.updatePersonalInfo(req, res);
 });
 
 app.post("/profile/updatePersonalImage", (req: Request, res: Response) => {
-    res.send("Func : Update Personal Image")
+    ProfileAPI.updatePersonalImage(req, res);
 });
 
 app.listen(8080, () => {
