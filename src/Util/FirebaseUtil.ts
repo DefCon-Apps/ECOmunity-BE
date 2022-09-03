@@ -1,4 +1,4 @@
-import {FirebaseApp, initializeApp} from "firebase/app";
+import {initializeApp} from "firebase/app";
 
 import dotenv from "dotenv";
 
@@ -11,6 +11,5 @@ const firebaseConfig = {
 };
 
 export const initFirebase = () => {
-    console.log(firebaseConfig);
-    return firebaseConfig;
+    return initializeApp(firebaseConfig);
 };
