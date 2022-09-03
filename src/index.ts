@@ -6,6 +6,7 @@ import profileRouter from "./Route/ProfileAPI";
 import * as FirebaseUtil from "./Util/FirebaseUtil";
 
 const app = express();
+const firebaseApp = FirebaseUtil.initFirebase();
 
 app.get("/", (req: Request, res: Response) => {
     res.send("Hello, World!");
