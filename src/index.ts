@@ -3,6 +3,8 @@ import express, { Request, Response } from "express";
 import boardRouter from "./Route/BoardAPI";
 import profileRouter from "./Route/ProfileAPI";
 
+import FirebaseUtil from "./Util/FirebaseUtil";
+
 const app = express();
 
 app.get("/", (req: Request, res: Response) => {
