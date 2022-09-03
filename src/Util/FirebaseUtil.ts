@@ -12,4 +12,5 @@ const firebaseConfig = {
 
 export const initFirebase = () => {
     console.log(firebaseConfig);
+    return firebaseConfig;
 };
