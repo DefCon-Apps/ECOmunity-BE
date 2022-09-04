@@ -1,8 +1,12 @@
+import { credential } from "firebase-admin";
 import { initializeApp } from 'firebase-admin/app';
-import { getAuth } from "firebase-admin/lib/auth";
+import { getAuth } from "firebase-admin/auth";
 
 export const initFirebase = () => {
-    initializeApp();
+    let serviceAccount = require("firebase-admin-account.json");
+    initializeApp({
+        credential: credential.cert(serviceAccount)
+    });
 }
 
 export const verifyToken = (strToken: string) => {
