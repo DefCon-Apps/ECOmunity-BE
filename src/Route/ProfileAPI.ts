@@ -5,7 +5,7 @@ import * as AuthUtil from "../Util/AuthUtil";
 const profileRouter = express.Router();
 
 profileRouter.post("/getPersonalInfo", (req: Request, res: Response) => {
-    const USER_TOKEN = req.body.USE_TOKEN;
+    const USER_TOKEN = req.body.USER_TOKEN;
     AuthUtil.verifyToken(USER_TOKEN);
 
     res.send("Func : Get Personal Info")
