@@ -7,6 +7,7 @@ import * as AuthUtil from "./Util/AuthUtil";
 import * as FirebaseUtil from "./Util/FirebaseUtil";
 
 const app = express();
+const firebaseAdminApp = AuthUtil.initFirebase();
 const firebaseApp = FirebaseUtil.initFirebase();
 
 AuthUtil.verifyToken("TEST_TOKEN");
