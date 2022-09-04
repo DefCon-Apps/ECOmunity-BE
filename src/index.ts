@@ -3,10 +3,13 @@ import express, { Request, Response } from "express";
 import boardRouter from "./Route/BoardAPI";
 import profileRouter from "./Route/ProfileAPI";
 
+import * as AuthUtil from "./Util/AuthUtil";
 import * as FirebaseUtil from "./Util/FirebaseUtil";
 
 const app = express();
 const firebaseApp = FirebaseUtil.initFirebase();
+
+AuthUtil.verifyToken("TEST_TOKEN");
 
 app.get("/", (req: Request, res: Response) => {
     res.send("Hello, World!");
