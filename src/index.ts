@@ -10,8 +10,6 @@ const app = express();
 const firebaseAdminApp = AuthUtil.initFirebase();
 const firebaseApp = FirebaseUtil.initFirebase();
 
-AuthUtil.verifyToken("TEST_TOKEN");
-
 app.get("/", (req: Request, res: Response) => {
     res.send("Hello, World!");
 });
