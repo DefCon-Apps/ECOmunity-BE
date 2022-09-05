@@ -1,21 +1,26 @@
 import express, { Request, Response } from "express";
 
+import * as AuthUtil from "../Util/AuthUtil";
+
 const profileRouter = express.Router();
 
-profileRouter.post("getPersonalInfo", (req: Request, res: Response) => {
-    res.send("Func : Get Personal Info")
+profileRouter.post("/getUserInfo", (req: Request, res: Response) => {
+    const USER_TOKEN = req.body.USER_TOKEN;
+    AuthUtil.verifyToken(USER_TOKEN);
+
+    res.send("Func : Get User Info")
 });
 
-profileRouter.post("getPersonalImage", (req: Request, res: Response) => {
-    res.send("Func : Get Personal Image")
+profileRouter.post("/getUserImage", (req: Request, res: Response) => {
+    res.send("Func : Get User Image")
 });
 
-profileRouter.post("updatePersonalInfo", (req: Request, res: Response) => {
-    res.send("Func : Update Personal Info")
+profileRouter.post("/updateUserInfo", (req: Request, res: Response) => {
+    res.send("Func : Update User Info")
 });
 
-profileRouter.post("updatePersonalImage", (req: Request, res: Response) => {
-    res.send("Func : Update Personal Image")
+profileRouter.post("/updateUserImage", (req: Request, res: Response) => {
+    res.send("Func : Update User Image")
 });
 
 export default profileRouter;
