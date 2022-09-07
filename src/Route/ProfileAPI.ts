@@ -23,7 +23,18 @@ profileRouter.post("/getUserInfo", (req: Request, res: Response) => {
 });
 
 profileRouter.post("/getUserImage", (req: Request, res: Response) => {
-    res.send("Func : Get User Image")
+    const USER_TOKEN = req.body.USER_TOKEN;
+    AuthUtil.verifyToken(USER_TOKEN);
+
+    const API_RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {
+            USER_IMG_URL: "USER_NAME"
+        }
+    }
+
+    res.send(API_RESULT_DATA)
 });
 
 profileRouter.post("/updateUserInfo", (req: Request, res: Response) => {
