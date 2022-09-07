@@ -17,9 +17,9 @@ profileRouter.post("/getUserInfo", (req: Request, res: Response) => {
             USER_EMAIL: "USER_EMAIL",
             USER_PHONE: "USER_PHONE"
         }
-    }
+    };
 
-    res.send(API_RESULT_DATA)
+    res.send(API_RESULT_DATA);
 });
 
 profileRouter.post("/getUserImage", (req: Request, res: Response) => {
