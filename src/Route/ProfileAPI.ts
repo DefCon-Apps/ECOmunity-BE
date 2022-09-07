@@ -8,7 +8,7 @@ const profileRouter = express.Router();
 profileRouter.post("/getUserInfo", (req: Request, res: Response) => {
     const UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
-    
+
     AuthUtil.verifyToken(USER_TOKEN);
 
     const API_RESULT_DATA: API_DATA = {
@@ -25,7 +25,9 @@ profileRouter.post("/getUserInfo", (req: Request, res: Response) => {
 });
 
 profileRouter.post("/getUserImage", (req: Request, res: Response) => {
+    const UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
+
     AuthUtil.verifyToken(USER_TOKEN);
 
     const API_RESULT_DATA: API_DATA = {
@@ -40,7 +42,9 @@ profileRouter.post("/getUserImage", (req: Request, res: Response) => {
 });
 
 profileRouter.post("/updateUserInfo", (req: Request, res: Response) => {
+    const UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
+
     AuthUtil.verifyToken(USER_TOKEN);
 
     const API_RESULT_DATA: API_DATA = {
@@ -53,7 +57,9 @@ profileRouter.post("/updateUserInfo", (req: Request, res: Response) => {
 });
 
 profileRouter.post("/updateUserImage", (req: Request, res: Response) => {
+    const UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
+
     AuthUtil.verifyToken(USER_TOKEN);
 
     const API_RESULT_DATA: API_DATA = {
