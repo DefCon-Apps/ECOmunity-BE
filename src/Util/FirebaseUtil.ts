@@ -13,3 +13,11 @@ const firebaseConfig = {
 export const initFirebase = () => {
     return initializeApp(firebaseConfig);
 };
+
+export const getUserInfoDB = (UID: string) => {
+
+};
+
+export const getUserImageDB = (UID: string) => {
+
+};
