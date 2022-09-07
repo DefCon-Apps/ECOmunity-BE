@@ -45,7 +45,9 @@ profileRouter.post("/updateUserInfo", (req: Request, res: Response) => {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
         RESULT_DATA: {}
-    }
+    };
+
+    res.send(API_RESULT_DATA);
 });
 
 profileRouter.post("/updateUserImage", (req: Request, res: Response) => {
