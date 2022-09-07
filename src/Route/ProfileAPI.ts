@@ -38,7 +38,14 @@ profileRouter.post("/getUserImage", (req: Request, res: Response) => {
 });
 
 profileRouter.post("/updateUserInfo", (req: Request, res: Response) => {
-    res.send("Func : Update User Info")
+    const USER_TOKEN = req.body.USER_TOKEN;
+    AuthUtil.verifyToken(USER_TOKEN);
+
+    const API_RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
 });
 
 profileRouter.post("/updateUserImage", (req: Request, res: Response) => {
