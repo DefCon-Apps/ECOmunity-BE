@@ -6,7 +6,9 @@ import * as AuthUtil from "../Util/AuthUtil";
 const profileRouter = express.Router();
 
 profileRouter.post("/getUserInfo", (req: Request, res: Response) => {
+    const UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
+    
     AuthUtil.verifyToken(USER_TOKEN);
 
     const API_RESULT_DATA: API_DATA = {
