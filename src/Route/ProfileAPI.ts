@@ -30,7 +30,7 @@ profileRouter.post("/getUserImage", (req: Request, res: Response) => {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
         RESULT_DATA: {
-            USER_IMG_URL: "USER_NAME"
+            USER_IMAGE_URL: "USER_IMAGE_URL"
         }
     }
 
