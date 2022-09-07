@@ -32,9 +32,9 @@ profileRouter.post("/getUserImage", (req: Request, res: Response) => {
         RESULT_DATA: {
             USER_IMAGE_URL: "USER_IMAGE_URL"
         }
-    }
+    };
 
-    res.send(API_RESULT_DATA)
+    res.send(API_RESULT_DATA);
 });
 
 profileRouter.post("/updateUserInfo", (req: Request, res: Response) => {
