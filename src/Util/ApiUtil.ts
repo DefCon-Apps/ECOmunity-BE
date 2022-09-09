@@ -3,3 +3,13 @@ export interface API_DATA {
     RESULT_MSG: string,
     RESULT_DATA: object
 }
+
+export interface API_USER_INFO {
+    USER_NAME: string,
+    USER_EMAIL: string,
+    USER_PHONE: string
+}
+
+export interface API_USER_IMAGE {
+    USER_IMAGE_URL: string
+}
