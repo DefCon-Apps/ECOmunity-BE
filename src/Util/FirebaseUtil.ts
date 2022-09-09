@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 
-import { API_DATA } from "./ApiUtil";
+import {API_DATA, API_USER_IMAGE, API_USER_INFO} from "./ApiUtil";
 
 import dotenv from "dotenv";
 
@@ -42,10 +42,22 @@ export const getUserImageDB = (UID: string): API_DATA => {
     return RESULT_DATA;
 };
 
-export const setUserInfoDB = (UID: string) => {
+export const setUserInfoDB = (UID: string, USER_INFO: API_USER_INFO): API_DATA => {
+    const RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
 
+    return RESULT_DATA;
 };
 
-export const setUserImageDB = (UID: string) => {
+export const setUserImageDB = (UID: string, USER_IMAGE: API_USER_IMAGE): API_DATA => {
+    const RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
 
+    return RESULT_DATA;
 };
