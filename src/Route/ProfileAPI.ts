@@ -56,7 +56,7 @@ profileRouter.post("/updateUserImage", (req: Request, res: Response) => {
     const USER_INFO_IMAGE_URL = req.body.USER_INFO.USER_IMAGE_URL;
 
     const USER_IMAGE_UPDATE: API_USER_IMAGE = {
-        USER_IMAGE_URL: USER_INFO_IMAGE_URL;
+        USER_IMAGE_URL: USER_INFO_IMAGE_URL
     }
 
     AuthUtil.verifyToken(USER_TOKEN);
