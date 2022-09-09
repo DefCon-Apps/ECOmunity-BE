@@ -53,13 +53,15 @@ profileRouter.post("/updateUserImage", (req: Request, res: Response) => {
     const UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
 
+    const USER_INFO_IMAGE_URL = req.body.USER_INFO.USER_IMAGE_URL;
+
+    const USER_IMAGE_UPDATE: API_USER_IMAGE = {
+        USER_IMAGE_URL: USER_INFO_IMAGE_URL;
+    }
+
     AuthUtil.verifyToken(USER_TOKEN);
 
-    const API_RESULT_DATA: API_DATA = {
-        RESULT_CODE: 0,
-        RESULT_MSG: "Ready",
-        RESULT_DATA: {}
-    };
+    const API_RESULT_DATA: API_DATA = FirebaseUtil.setUserImageDB(UID, USER_IMAGE_UPDATE);
 
     res.send(API_RESULT_DATA);
 });
