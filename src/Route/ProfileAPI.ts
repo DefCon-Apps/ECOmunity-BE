@@ -1,7 +1,8 @@
 import express, { Request, Response } from "express";
 
-import { API_DATA } from "../Util/ApiUtil";
+import { API_DATA, API_USER_IMAGE, API_USER_INFO } from "../Util/ApiUtil";
 import * as AuthUtil from "../Util/AuthUtil";
+import * as FirebaseUtil from "../Util/FirebaseUtil";
 
 const profileRouter = express.Router();
 
@@ -20,6 +21,8 @@ profileRouter.post("/getUserInfo", (req: Request, res: Response) => {
             USER_PHONE: "USER_PHONE"
         }
     };
+
+    API_RESULT_DATA.RESULT_DATA = FirebaseUtil.getUserInfoDB(UID);
 
     res.send(API_RESULT_DATA);
 });
