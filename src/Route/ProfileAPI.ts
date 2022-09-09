@@ -41,6 +41,8 @@ profileRouter.post("/getUserImage", (req: Request, res: Response) => {
         }
     };
 
+    API_RESULT_DATA.RESULT_DATA = FirebaseUtil.getUserImageDB(UID);
+
     res.send(API_RESULT_DATA);
 });
 
