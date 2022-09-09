@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 
-import { API_USER_IMAGE, API_USER_INFO } from "../Util/ApiUtil";
+import { API_USER_IMAGE, API_USER_INFO } from "./ApiUtil";
 
 import dotenv from "dotenv";
 
