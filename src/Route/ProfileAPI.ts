@@ -12,17 +12,7 @@ profileRouter.post("/getUserInfo", (req: Request, res: Response) => {
 
     AuthUtil.verifyToken(USER_TOKEN);
 
-    const API_RESULT_DATA: API_DATA = {
-        RESULT_CODE: 0,
-        RESULT_MSG: "Ready",
-        RESULT_DATA: {
-            USER_NAME: "USER_NAME",
-            USER_EMAIL: "USER_EMAIL",
-            USER_PHONE: "USER_PHONE"
-        }
-    };
-
-    API_RESULT_DATA.RESULT_DATA = FirebaseUtil.getUserInfoDB(UID);
+    const API_RESULT_DATA = FirebaseUtil.getUserInfoDB(UID);
 
     res.send(API_RESULT_DATA);
 });
@@ -33,15 +23,7 @@ profileRouter.post("/getUserImage", (req: Request, res: Response) => {
 
     AuthUtil.verifyToken(USER_TOKEN);
 
-    const API_RESULT_DATA: API_DATA = {
-        RESULT_CODE: 0,
-        RESULT_MSG: "Ready",
-        RESULT_DATA: {
-            USER_IMAGE_URL: "USER_IMAGE_URL"
-        }
-    };
-
-    API_RESULT_DATA.RESULT_DATA = FirebaseUtil.getUserImageDB(UID);
+    const API_RESULT_DATA = FirebaseUtil.getUserImageDB(UID);
 
     res.send(API_RESULT_DATA);
 });
