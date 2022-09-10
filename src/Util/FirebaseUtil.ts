@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { FirebaseApp, initializeApp } from "firebase/app";
 import { collection, doc, Firestore, getDoc, getDocs, getFirestore, query } from "firebase/firestore";
 
 import {API_DATA, API_USER_IMAGE, API_USER_INFO} from "./ApiUtil";
@@ -13,8 +13,12 @@ const firebaseConfig = {
     appId: process.env.FB_APP_ID
 };
 
+let firebaseApp: FirebaseApp;
+let firebaseDB: Firestore;
+
 export const initFirebase = () => {
-    return initializeApp(firebaseConfig);
+    firebaseApp =  initializeApp(firebaseConfig);
+    firebaseDB = getFirestore();
 };
 
 export const getUserInfoDB = (UID: string): API_DATA => {
