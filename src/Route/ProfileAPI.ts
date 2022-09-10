@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express";
 
 import { API_DATA, API_USER_INFO } from "../Util/ApiUtil";
-import * as AuthUtil from "../Util/AuthUtil";
 import * as FirebaseUtil from "../Util/FirebaseUtil";
 
 const profileRouter = express.Router();
