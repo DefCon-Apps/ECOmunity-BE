@@ -27,12 +27,8 @@ export const getUserInfoDB = async (UID: string): Promise<API_DATA> => {
     return RESULT_DATA;
 };
 
-export const setUserInfoDB = (UID: string, USER_INFO: API_USER_INFO): API_DATA => {
-    const RESULT_DATA: API_DATA = {
-        RESULT_CODE: 0,
-        RESULT_MSG: "Ready",
-        RESULT_DATA: {}
-    }
+export const setUserInfoDB = async (UID: string, USER_INFO: API_USER_INFO): Promise<API_DATA> => {
+    const RESULT_DATA = await setFirebaseDB("profile", UID, USER_INFO);
 
     return RESULT_DATA;
 };
