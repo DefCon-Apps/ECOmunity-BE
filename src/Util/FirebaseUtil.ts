@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { collection, doc, Firestore, getDoc, getDocs, getFirestore, query } from "firebase/firestore";
 
 import {API_DATA, API_USER_IMAGE, API_USER_INFO} from "./ApiUtil";
 
@@ -61,3 +62,11 @@ export const setUserImageDB = (UID: string, USER_IMAGE: API_USER_IMAGE): API_DAT
 
     return RESULT_DATA;
 };
+
+const getFirebaseDB = (collection: string, document: string) => {
+
+}
+
+const setFirebaseDB = (collection: string, document: string) => {
+
+}
