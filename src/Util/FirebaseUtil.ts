@@ -68,7 +68,7 @@ const setFirebaseDB = async (collection: string, document: string, updateData: o
 
     const fbDocument = doc(firebaseDB, collection, document);
     const fbDocumentRef = await getDoc(fbDocument);
-    if(fbDocumentRef.exists()){
+    if(!fbDocumentRef.exists()){
         RESULT_DATA.RESULT_CODE = 100;
         RESULT_DATA.RESULT_MSG = "No Such Database";
         return RESULT_DATA;
