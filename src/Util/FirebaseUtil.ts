@@ -22,7 +22,7 @@ export const initFirebase = () => {
 };
 
 export const getUserInfoDB = async (UID: string): Promise<API_DATA> => {
-    const RESULT_DATA = await getFirebaseDB("profile", "USER_ID");
+    const RESULT_DATA = await getFirebaseDB("profile", UID);
 
     return RESULT_DATA;
 };
