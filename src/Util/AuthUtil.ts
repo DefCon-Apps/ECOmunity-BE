@@ -14,9 +14,9 @@ export const verifyToken = (strToken: string) => {
         .verifyIdToken(strToken)
         .then((decodedToken) => {
             const uid = decodedToken.uid;
-            console.log(`UID : ${uid}`)
+            console.log(`UID : ${uid}`);
         })
         .catch((error) => {
-            console.log(`Error Occurred : ${error}`)
+            throw error;
         });
 }
