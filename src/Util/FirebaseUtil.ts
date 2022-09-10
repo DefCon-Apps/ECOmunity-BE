@@ -21,13 +21,13 @@ export const initFirebase = () => {
     firebaseDB = getFirestore();
 };
 
-export const getUserInfoDB = async (UID: string): Promise<API_DATA> => {
+export const getUserInfoDB = async (UID: string, TOKEN: string): Promise<API_DATA> => {
     const RESULT_DATA = await getFirebaseDB("profile", UID);
 
     return RESULT_DATA;
 };
 
-export const setUserInfoDB = async (UID: string, USER_INFO: API_USER_INFO): Promise<API_DATA> => {
+export const setUserInfoDB = async (UID: string, TOKEN: string, USER_INFO: API_USER_INFO): Promise<API_DATA> => {
     const RESULT_DATA = await setFirebaseDB("profile", UID, USER_INFO);
 
     return RESULT_DATA;

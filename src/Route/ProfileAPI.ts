@@ -12,7 +12,7 @@ profileRouter.post("/getUserInfo", async (req: Request, res: Response) => {
 
     AuthUtil.verifyToken(USER_TOKEN);
 
-    const API_RESULT_DATA = await FirebaseUtil.getUserInfoDB(UID);
+    const API_RESULT_DATA = await FirebaseUtil.getUserInfoDB(UID, USER_TOKEN);
 
     res.send(API_RESULT_DATA);
 });
@@ -33,7 +33,7 @@ profileRouter.post("/updateUserInfo", async (req: Request, res: Response) => {
 
     AuthUtil.verifyToken(USER_TOKEN);
 
-    const API_RESULT_DATA: API_DATA = await FirebaseUtil.setUserInfoDB(UID, USER_INFO_UPDATE);
+    const API_RESULT_DATA: API_DATA = await FirebaseUtil.setUserInfoDB(UID, USER_TOKEN, USER_INFO_UPDATE);
 
     res.send(API_RESULT_DATA);
 });
