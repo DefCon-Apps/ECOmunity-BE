@@ -67,10 +67,10 @@ export const setUserImageDB = (UID: string, USER_IMAGE: API_USER_IMAGE): API_DAT
     return RESULT_DATA;
 };
 
-const getFirebaseDB = (collection: string, document: string) => {
+const getFirebaseDB = async (collection: string, document: string) => {
 
 }
 
-const setFirebaseDB = (collection: string, document: string) => {
+const setFirebaseDB = async (collection: string, document: string) => {
 
 }
