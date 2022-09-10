@@ -7,18 +7,18 @@ import * as FirebaseUtil from "../Util/FirebaseUtil";
 const profileRouter = express.Router();
 
 profileRouter.post("/getUserInfo", async (req: Request, res: Response) => {
-    const UID = req.body.USER_UID;
+    const USER_UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
 
     AuthUtil.verifyToken(USER_TOKEN);
 
-    const API_RESULT_DATA = await FirebaseUtil.getUserInfoDB(UID, USER_TOKEN);
+    const API_RESULT_DATA = await FirebaseUtil.getUserInfoDB(USER_UID, USER_TOKEN);
 
     res.send(API_RESULT_DATA);
 });
 
 profileRouter.post("/updateUserInfo", async (req: Request, res: Response) => {
-    const UID = req.body.USER_UID;
+    const USER_UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
 
     const USER_INFO_NAME = req.body.USER_INFO.USER_NAME;
@@ -33,7 +33,7 @@ profileRouter.post("/updateUserInfo", async (req: Request, res: Response) => {
 
     AuthUtil.verifyToken(USER_TOKEN);
 
-    const API_RESULT_DATA: API_DATA = await FirebaseUtil.setUserInfoDB(UID, USER_TOKEN, USER_INFO_UPDATE);
+    const API_RESULT_DATA: API_DATA = await FirebaseUtil.setUserInfoDB(USER_UID, USER_TOKEN, USER_INFO_UPDATE);
 
     res.send(API_RESULT_DATA);
 });
