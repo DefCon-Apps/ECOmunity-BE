@@ -10,8 +10,6 @@ profileRouter.post("/getUserInfo", async (req: Request, res: Response) => {
     const USER_UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
 
-    AuthUtil.verifyToken(USER_TOKEN);
-
     const API_RESULT_DATA = await FirebaseUtil.getUserInfoDB(USER_UID, USER_TOKEN);
 
     res.send(API_RESULT_DATA);
@@ -30,8 +28,6 @@ profileRouter.post("/updateUserInfo", async (req: Request, res: Response) => {
         USER_EMAIL: USER_INFO_EMAIL,
         USER_PHONE: USER_INFO_PHONE
     }
-
-    AuthUtil.verifyToken(USER_TOKEN);
 
     const API_RESULT_DATA: API_DATA = await FirebaseUtil.setUserInfoDB(USER_UID, USER_TOKEN, USER_INFO_UPDATE);
 
