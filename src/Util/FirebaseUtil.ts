@@ -21,16 +21,8 @@ export const initFirebase = () => {
     firebaseDB = getFirestore();
 };
 
-export const getUserInfoDB = (UID: string): API_DATA => {
-    const RESULT_DATA: API_DATA = {
-        RESULT_CODE: 0,
-        RESULT_MSG: "Ready",
-        RESULT_DATA: {
-            USER_NAME: "USER_NAME",
-            USER_EMAIL: "USER_EMAIL",
-            USER_PHONE: "USER_PHONE"
-        }
-    }
+export const getUserInfoDB = async (UID: string): Promise<API_DATA> => {
+    const RESULT_DATA = await getFirebaseDB("profile", "USER_ID");
 
     return RESULT_DATA;
 };
@@ -81,7 +73,14 @@ const getFirebaseDB = async (collection: string, document: string) => {
         return RESULT_DATA;
     }
 
-    RESULT_DATA.RESULT_DATA = fbDocument.data();
+    try{
+        RESULT_DATA.RESULT_CODE = 200;
+        RESULT_DATA.RESULT_MSG = "Success";
+        RESULT_DATA.RESULT_DATA = fbDocument.data();
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 300;
+        RESULT_DATA.RESULT_MSG = error as string;
+    }
 
     return RESULT_DATA;
 }
