@@ -6,29 +6,29 @@ import * as FirebaseUtil from "../Util/FirebaseUtil";
 
 const profileRouter = express.Router();
 
-profileRouter.post("/getUserInfo", (req: Request, res: Response) => {
+profileRouter.post("/getUserInfo", async (req: Request, res: Response) => {
     const UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
 
     AuthUtil.verifyToken(USER_TOKEN);
 
-    const API_RESULT_DATA = FirebaseUtil.getUserInfoDB(UID);
+    const API_RESULT_DATA = await FirebaseUtil.getUserInfoDB(UID);
 
     res.send(API_RESULT_DATA);
 });
 
-profileRouter.post("/getUserImage", (req: Request, res: Response) => {
+profileRouter.post("/getUserImage", async (req: Request, res: Response) => {
     const UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
 
     AuthUtil.verifyToken(USER_TOKEN);
 
-    const API_RESULT_DATA = FirebaseUtil.getUserImageDB(UID);
+    const API_RESULT_DATA = await FirebaseUtil.getUserImageDB(UID);
 
     res.send(API_RESULT_DATA);
 });
 
-profileRouter.post("/updateUserInfo", (req: Request, res: Response) => {
+profileRouter.post("/updateUserInfo", async (req: Request, res: Response) => {
     const UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
 
@@ -44,12 +44,12 @@ profileRouter.post("/updateUserInfo", (req: Request, res: Response) => {
 
     AuthUtil.verifyToken(USER_TOKEN);
 
-    const API_RESULT_DATA: API_DATA = FirebaseUtil.setUserInfoDB(UID, USER_INFO_UPDATE);
+    const API_RESULT_DATA: API_DATA = await FirebaseUtil.setUserInfoDB(UID, USER_INFO_UPDATE);
 
     res.send(API_RESULT_DATA);
 });
 
-profileRouter.post("/updateUserImage", (req: Request, res: Response) => {
+profileRouter.post("/updateUserImage", async (req: Request, res: Response) => {
     const UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
 
@@ -61,7 +61,7 @@ profileRouter.post("/updateUserImage", (req: Request, res: Response) => {
 
     AuthUtil.verifyToken(USER_TOKEN);
 
-    const API_RESULT_DATA: API_DATA = FirebaseUtil.setUserImageDB(UID, USER_IMAGE_UPDATE);
+    const API_RESULT_DATA: API_DATA = await FirebaseUtil.setUserImageDB(UID, USER_IMAGE_UPDATE);
 
     res.send(API_RESULT_DATA);
 });
