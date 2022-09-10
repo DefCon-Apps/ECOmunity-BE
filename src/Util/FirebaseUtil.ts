@@ -1,7 +1,7 @@
-import { FirebaseApp, initializeApp } from "firebase/app";
-import { doc, Firestore, getDoc, getFirestore, updateDoc } from "firebase/firestore";
+import {FirebaseApp, initializeApp} from "firebase/app";
+import {doc, Firestore, getDoc, getFirestore, updateDoc} from "firebase/firestore";
 
-import { API_DATA, API_USER_INFO } from "./ApiUtil";
+import {API_DATA, API_USER_INFO} from "./ApiUtil";
 
 import dotenv from "dotenv";
 
@@ -22,15 +22,11 @@ export const initFirebase = () => {
 };
 
 export const getUserInfoDB = async (UID: string): Promise<API_DATA> => {
-    const RESULT_DATA = await getFirebaseDB("profile", UID);
-
-    return RESULT_DATA;
+    return await getFirebaseDB("profile", UID);
 };
 
 export const setUserInfoDB = async (UID: string, USER_INFO: API_USER_INFO): Promise<API_DATA> => {
-    const RESULT_DATA = await setFirebaseDB("profile", UID, USER_INFO);
-
-    return RESULT_DATA;
+    return await setFirebaseDB("profile", UID, USER_INFO);
 };
 
 const getFirebaseDB = async (collection: string, document: string) => {
