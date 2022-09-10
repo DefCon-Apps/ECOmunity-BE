@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 
-import { API_DATA, API_USER_IMAGE, API_USER_INFO } from "../Util/ApiUtil";
+import { API_DATA, API_USER_INFO } from "../Util/ApiUtil";
 import * as AuthUtil from "../Util/AuthUtil";
 import * as FirebaseUtil from "../Util/FirebaseUtil";
 
@@ -13,17 +13,6 @@ profileRouter.post("/getUserInfo", async (req: Request, res: Response) => {
     AuthUtil.verifyToken(USER_TOKEN);
 
     const API_RESULT_DATA = await FirebaseUtil.getUserInfoDB(UID);
-
-    res.send(API_RESULT_DATA);
-});
-
-profileRouter.post("/getUserImage", async (req: Request, res: Response) => {
-    const UID = req.body.USER_UID;
-    const USER_TOKEN = req.body.USER_TOKEN;
-
-    AuthUtil.verifyToken(USER_TOKEN);
-
-    const API_RESULT_DATA = await FirebaseUtil.getUserImageDB(UID);
 
     res.send(API_RESULT_DATA);
 });
@@ -45,23 +34,6 @@ profileRouter.post("/updateUserInfo", async (req: Request, res: Response) => {
     AuthUtil.verifyToken(USER_TOKEN);
 
     const API_RESULT_DATA: API_DATA = await FirebaseUtil.setUserInfoDB(UID, USER_INFO_UPDATE);
-
-    res.send(API_RESULT_DATA);
-});
-
-profileRouter.post("/updateUserImage", async (req: Request, res: Response) => {
-    const UID = req.body.USER_UID;
-    const USER_TOKEN = req.body.USER_TOKEN;
-
-    const USER_INFO_IMAGE_URL = req.body.USER_INFO.USER_IMAGE_URL;
-
-    const USER_IMAGE_UPDATE: API_USER_IMAGE = {
-        USER_IMAGE_URL: USER_INFO_IMAGE_URL
-    }
-
-    AuthUtil.verifyToken(USER_TOKEN);
-
-    const API_RESULT_DATA: API_DATA = await FirebaseUtil.setUserImageDB(UID, USER_IMAGE_UPDATE);
 
     res.send(API_RESULT_DATA);
 });
