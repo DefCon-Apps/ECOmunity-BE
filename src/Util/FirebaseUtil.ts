@@ -78,7 +78,7 @@ const getFirebaseDB = async (collection: string, document: string) => {
         RESULT_DATA.RESULT_MSG = "Success";
         RESULT_DATA.RESULT_DATA = fbDocument.data();
     }catch(error){
-        RESULT_DATA.RESULT_CODE = 300;
+        RESULT_DATA.RESULT_CODE = 100;
         RESULT_DATA.RESULT_MSG = error as string;
     }
 
