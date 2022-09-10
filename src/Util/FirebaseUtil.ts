@@ -68,7 +68,22 @@ export const setUserImageDB = (UID: string, USER_IMAGE: API_USER_IMAGE): API_DAT
 };
 
 const getFirebaseDB = async (collection: string, document: string) => {
+    const RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
 
+    const fbDocument = await getDoc(doc(firebaseDB, collection, document));
+    if(!fbDocument.exists()){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = "No Such Database";
+        return RESULT_DATA;
+    }
+
+    RESULT_DATA.RESULT_DATA = fbDocument.data();
+
+    return RESULT_DATA;
 }
 
 const setFirebaseDB = async (collection: string, document: string) => {
