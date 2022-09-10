@@ -1,5 +1,5 @@
 import { FirebaseApp, initializeApp } from "firebase/app";
-import { collection, doc, Firestore, getDoc, getDocs, getFirestore, query,  updateDoc } from "firebase/firestore";
+import { doc, Firestore, getDoc, getFirestore, updateDoc } from "firebase/firestore";
 
 import { API_DATA, API_USER_INFO } from "./ApiUtil";
 
