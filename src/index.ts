@@ -7,8 +7,9 @@ import * as AuthUtil from "./Util/AuthUtil";
 import * as FirebaseUtil from "./Util/FirebaseUtil";
 
 const app = express();
-const firebaseAdminApp = AuthUtil.initFirebase();
-const firebaseApp = FirebaseUtil.initFirebase();
+
+AuthUtil.initFirebase();
+FirebaseUtil.initFirebase();
 
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
