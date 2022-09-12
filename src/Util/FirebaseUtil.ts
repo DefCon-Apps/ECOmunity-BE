@@ -1,5 +1,5 @@
 import { FirebaseApp, initializeApp } from "firebase/app";
-import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, updateDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, setDoc, updateDoc } from "firebase/firestore";
 
 import { API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO } from "./ApiUtil";
 
@@ -88,7 +88,7 @@ export const deletePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: b
     return RESULT_DATA
 }
 
-export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NEW: boolean, POST_IS_NOTICE: boolean, POST_ID: string, POST_DATA: API_POST_DATA): Promise<API_DATA> => {
+export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string, POST_DATA: API_POST_DATA): Promise<API_DATA> => {
     const POST_TYPE = POST_IS_NOTICE ? "notice" : "board";
     let RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
@@ -105,7 +105,7 @@ export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NEW: bool
         return RESULT_DATA;
     }
 
-    RESULT_DATA = POST_IS_NEW ? await setFirebaseDB(POST_TYPE, POST_ID, POST_DATA) : await setFirebaseDB(POST_TYPE, POST_ID, POST_DATA);
+    RESULT_DATA = await setFirebaseDB(POST_TYPE, POST_ID, POST_DATA);
 
     return RESULT_DATA
 }
@@ -177,6 +177,34 @@ export const setUserInfoDB = async (UID: string, TOKEN: string, USER_INFO: API_U
 
     return RESULT_DATA;
 };
+
+const addFirebaseDB = async (collectionID: string, documentID: string, updateData: object) => {
+    const RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
+
+    const fbDocument = doc(firebaseDB, collectionID, documentID);
+    const fbDocumentRef = await getDoc(fbDocument);
+    if(!fbDocumentRef.exists()){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = "No Such Database";
+        return RESULT_DATA;
+    }
+
+    try{
+        RESULT_DATA.RESULT_CODE = 200;
+        RESULT_DATA.RESULT_MSG = "Success";
+
+        await setDoc(fbDocument, updateData);
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = error as string;
+    }
+
+    return RESULT_DATA;
+}
 
 const deleteFirebaseDB = async (collectionID: string, documentID: string) => {
     const RESULT_DATA: API_DATA = {
