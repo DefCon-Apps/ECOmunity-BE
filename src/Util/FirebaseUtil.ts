@@ -101,6 +101,8 @@ export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: b
         return RESULT_DATA;
     }
 
+    RESULT_DATA = await setFirebaseDB(POST_TYPE, POST_ID, POST_DATA);
+
     return RESULT_DATA
 }
 
