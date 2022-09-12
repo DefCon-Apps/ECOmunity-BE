@@ -11,6 +11,15 @@ boardRouter.post("/getPost", async (req: Request, res: Response) => {
     res.send("Func : Get Post")
 });
 
+boardRouter.post("/getPostList", async (req: Request, res: Response) => {
+    const USER_UID = req.body.USER_UID;
+    const USER_TOKEN = req.body.USER_TOKEN;
+
+    const POST_ID = req.body.POST_ID;
+
+    res.send("Func : Get Post")
+});
+
 boardRouter.post("/updatePost", async (req: Request, res: Response) => {
     const USER_UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
