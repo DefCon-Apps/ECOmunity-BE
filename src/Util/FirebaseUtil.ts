@@ -22,28 +22,64 @@ export const initFirebase = () => {
     firebaseDB = getFirestore();
 };
 
-export const getPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string) => {
+export const getPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string): Promise<API_DATA> => {
+    let RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
 
+    return RESULT_DATA
 }
 
-export const getListPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean) => {
+export const getListPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean): Promise<API_DATA> => {
+    let RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
 
+    return RESULT_DATA
 }
 
-export const deletePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string) => {
+export const deletePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string): Promise<API_DATA> => {
+    let RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
 
+    return RESULT_DATA
 }
 
-export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string, POST_DATA: API_POST_DATA) => {
+export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string, POST_DATA: API_POST_DATA): Promise<API_DATA> => {
+    let RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
 
+    return RESULT_DATA
 }
 
-export const getRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string) => {
+export const getRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string): Promise<API_DATA> => {
+    let RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
 
+    return RESULT_DATA
 }
 
-export const updateRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string, POST_RECOMMEND: number) => {
+export const updateRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string, POST_RECOMMEND: number): Promise<API_DATA> => {
+    let RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
 
+    return RESULT_DATA
 }
 
 export const getUserInfoDB = async (UID: string, TOKEN: string): Promise<API_DATA> => {
