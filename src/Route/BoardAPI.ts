@@ -40,11 +40,19 @@ boardRouter.post("/updatePost", async (req: Request, res: Response) => {
 
     const POST_ID = req.body.POST_ID;
     
-    const POST_AUTHOR = req.body.POST_DATA.POST_AUTHOR;
-    const POST_DATE = req.body.POST_DATA.POST_DATE;
-    const POST_CONTENT = req.body.POST_DATA.POST_CONTENT;
-    const POST_IMAGE = req.body.POST_DATA.POST_IMAGE;
-    const POST_TITLE = req.body.POST_DATA.POST_TITLE;
+    const POST_DATA_AUTHOR = req.body.POST_DATA.POST_AUTHOR;
+    const POST_DATA_DATE = req.body.POST_DATA.POST_DATE;
+    const POST_DATA_CONTENT = req.body.POST_DATA.POST_CONTENT;
+    const POST_DATA_IMAGE = req.body.POST_DATA.POST_IMAGE;
+    const POST_DATA_TITLE = req.body.POST_DATA.POST_TITLE;
+
+    const POST_DATA_UPDATE: API_POST_DATA = {
+        POST_AUTHOR: POST_DATA_AUTHOR,
+        POST_DATE: POST_DATA_DATE,
+        POST_CONTENT: POST_DATA_CONTENT,
+        POST_IMAGE: POST_DATA_IMAGE,
+        POST_TITLE: POST_DATA_TITLE
+    }
 
     const API_RESULT_DATA: API_DATA = {
         RESULT_CODE: 200,
