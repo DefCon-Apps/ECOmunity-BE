@@ -12,6 +12,17 @@ export interface API_POST_DATA {
     POST_TITLE: string
 }
 
+export interface API_POST_LIST {
+    POST_COUNT: number,
+    POST_LIST: Array<API_POST_LIST_ITEM>
+}
+
+export interface API_POST_LIST_ITEM {
+    POST_AUTHOR: string,
+    POST_DATE: string,
+    POST_TITLE: string
+}
+
 export interface API_USER_INFO {
     USER_NAME: string,
     USER_EMAIL: string,
