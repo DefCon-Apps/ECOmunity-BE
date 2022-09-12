@@ -33,6 +33,7 @@ boardRouter.post("/updatePost", async (req: Request, res: Response) => {
     const USER_TOKEN = req.body.USER_TOKEN;
 
     const POST_ID = req.body.POST_ID;
+    const POST_IS_NEW = req.body.POST_IS_NEW;
     const POST_IS_NOTICE = req.body.POST_IS_NOTICE;
     
     const POST_DATA_AUTHOR = req.body.POST_DATA.POST_AUTHOR;
@@ -49,7 +50,7 @@ boardRouter.post("/updatePost", async (req: Request, res: Response) => {
         POST_TITLE: POST_DATA_TITLE
     }
 
-    const API_RESULT_DATA: API_DATA = await FirebaseUtil.updatePostDB(USER_UID, USER_TOKEN, POST_IS_NOTICE, POST_ID, POST_DATA_UPDATE);
+    const API_RESULT_DATA: API_DATA = await FirebaseUtil.updatePostDB(USER_UID, USER_TOKEN, POST_IS_NEW, POST_IS_NOTICE, POST_ID, POST_DATA_UPDATE);
 
     res.send(API_RESULT_DATA)
 });

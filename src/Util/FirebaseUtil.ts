@@ -1,7 +1,7 @@
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, updateDoc } from "firebase/firestore";
 
-import {API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO} from "./ApiUtil";
+import { API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO } from "./ApiUtil";
 
 import dotenv from "dotenv";
 import * as AuthUtil from "./AuthUtil";
@@ -88,7 +88,7 @@ export const deletePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: b
     return RESULT_DATA
 }
 
-export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string, POST_DATA: API_POST_DATA): Promise<API_DATA> => {
+export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NEW: boolean, POST_IS_NOTICE: boolean, POST_ID: string, POST_DATA: API_POST_DATA): Promise<API_DATA> => {
     const POST_TYPE = POST_IS_NOTICE ? "notice" : "board";
     let RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
@@ -105,7 +105,7 @@ export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: b
         return RESULT_DATA;
     }
 
-    RESULT_DATA = await setFirebaseDB(POST_TYPE, POST_ID, POST_DATA);
+    RESULT_DATA = POST_IS_NEW ? await setFirebaseDB(POST_TYPE, POST_ID, POST_DATA) : await setFirebaseDB(POST_TYPE, POST_ID, POST_DATA);
 
     return RESULT_DATA
 }
