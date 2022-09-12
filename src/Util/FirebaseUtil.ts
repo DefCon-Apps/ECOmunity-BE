@@ -29,6 +29,15 @@ export const getPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: bool
         RESULT_DATA: {}
     }
 
+    try{
+        AuthUtil.verifyToken(TOKEN);
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = error as string;
+
+        return RESULT_DATA;
+    }
+
     return RESULT_DATA
 }
 
@@ -37,6 +46,15 @@ export const getPostListDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: 
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
         RESULT_DATA: {}
+    }
+
+    try{
+        AuthUtil.verifyToken(TOKEN);
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = error as string;
+
+        return RESULT_DATA;
     }
 
     return RESULT_DATA
@@ -49,6 +67,15 @@ export const deletePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: b
         RESULT_DATA: {}
     }
 
+    try{
+        AuthUtil.verifyToken(TOKEN);
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = error as string;
+
+        return RESULT_DATA;
+    }
+
     return RESULT_DATA
 }
 
@@ -57,6 +84,15 @@ export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: b
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
         RESULT_DATA: {}
+    }
+
+    try{
+        AuthUtil.verifyToken(TOKEN);
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = error as string;
+
+        return RESULT_DATA;
     }
 
     return RESULT_DATA
@@ -69,6 +105,15 @@ export const getRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTICE:
         RESULT_DATA: {}
     }
 
+    try{
+        AuthUtil.verifyToken(TOKEN);
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = error as string;
+
+        return RESULT_DATA;
+    }
+
     return RESULT_DATA
 }
 
@@ -77,6 +122,15 @@ export const updateRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTI
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
         RESULT_DATA: {}
+    }
+
+    try{
+        AuthUtil.verifyToken(TOKEN);
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = error as string;
+
+        return RESULT_DATA;
     }
 
     return RESULT_DATA
