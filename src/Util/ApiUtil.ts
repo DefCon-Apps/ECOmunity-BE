@@ -8,13 +8,13 @@ export interface API_POST_DATA {
     POST_AUTHOR: string,
     POST_DATE: string,
     POST_CONTENT: string,
-    POST_ID: string,
     POST_IMAGE: string,
     POST_TITLE: string
 }
 
 export interface API_POST_LIST {
     POST_COUNT: number,
+    POST_IS_NOTICE: boolean,
     POST_LIST: Array<API_POST_LIST_ITEM>
 }
 

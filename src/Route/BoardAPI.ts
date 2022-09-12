@@ -9,6 +9,7 @@ boardRouter.post("/getPost", async (req: Request, res: Response) => {
     const USER_TOKEN = req.body.USER_TOKEN;
 
     const POST_ID = req.body.POST_ID;
+    const POST_IS_NOTICE = req.body.POST_IS_NOTICE;
 
     const API_RESULT_DATA: API_DATA = {
         RESULT_CODE: 200,
@@ -24,6 +25,7 @@ boardRouter.post("/getPostList", async (req: Request, res: Response) => {
     const USER_TOKEN = req.body.USER_TOKEN;
 
     const POST_ID = req.body.POST_ID;
+    const POST_IS_NOTICE = req.body.POST_IS_NOTICE;
 
     const API_RESULT_DATA: API_DATA = {
         RESULT_CODE: 200,
@@ -39,6 +41,7 @@ boardRouter.post("/updatePost", async (req: Request, res: Response) => {
     const USER_TOKEN = req.body.USER_TOKEN;
 
     const POST_ID = req.body.POST_ID;
+    const POST_IS_NOTICE = req.body.POST_IS_NOTICE;
     
     const POST_DATA_AUTHOR = req.body.POST_DATA.POST_AUTHOR;
     const POST_DATA_DATE = req.body.POST_DATA.POST_DATE;
@@ -50,7 +53,6 @@ boardRouter.post("/updatePost", async (req: Request, res: Response) => {
         POST_AUTHOR: POST_DATA_AUTHOR,
         POST_DATE: POST_DATA_DATE,
         POST_CONTENT: POST_DATA_CONTENT,
-        POST_ID: POST_ID,
         POST_IMAGE: POST_DATA_IMAGE,
         POST_TITLE: POST_DATA_TITLE
     }
@@ -69,6 +71,7 @@ boardRouter.post("/deletePost", async (req: Request, res: Response) => {
     const USER_TOKEN = req.body.USER_TOKEN;
 
     const POST_ID = req.body.POST_ID;
+    const POST_IS_NOTICE = req.body.POST_IS_NOTICE;
 
     const API_RESULT_DATA: API_DATA = {
         RESULT_CODE: 200,
@@ -84,6 +87,7 @@ boardRouter.post("/getRecommend", async (req: Request, res: Response) => {
     const USER_TOKEN = req.body.USER_TOKEN;
 
     const POST_ID = req.body.POST_ID;
+    const POST_IS_NOTICE = req.body.POST_IS_NOTICE;
 
     const API_RESULT_DATA: API_DATA = {
         RESULT_CODE: 200,
@@ -99,6 +103,7 @@ boardRouter.post("/updateRecommend", async (req: Request, res: Response) => {
     const USER_TOKEN = req.body.USER_TOKEN;
 
     const POST_ID = req.body.POST_ID;
+    const POST_IS_NOTICE = req.body.POST_IS_NOTICE;
     const POST_RECOMMEND = req.body.POST_RECOMMEND;
 
     const API_RESULT_DATA: API_DATA = {
