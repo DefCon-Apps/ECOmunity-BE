@@ -31,6 +31,11 @@ boardRouter.post("/deletePost", async (req: Request, res: Response) => {
 });
 
 boardRouter.post("/getRecommend", async (req: Request, res: Response) => {
+    const USER_UID = req.body.USER_UID;
+    const USER_TOKEN = req.body.USER_TOKEN;
+
+    const POST_ID = req.body.POST_ID;
+
     res.send("Func : Get Recommend")
 });
 
