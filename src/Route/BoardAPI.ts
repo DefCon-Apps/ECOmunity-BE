@@ -1,5 +1,7 @@
 import express, { Request, Response } from "express";
 
+import { API_DATA, API_POST_DATA } from "../Util/ApiUtil";
+
 const boardRouter = express.Router();
 
 boardRouter.post("/getPost", async (req: Request, res: Response) => {
@@ -8,7 +10,13 @@ boardRouter.post("/getPost", async (req: Request, res: Response) => {
 
     const POST_ID = req.body.POST_ID;
 
-    res.send("Func : Get Post")
+    const API_RESULT_DATA: API_DATA = {
+        RESULT_CODE: 200,
+        RESULT_MSG: "OK",
+        RESULT_DATA: {}
+    }
+
+    res.send(API_RESULT_DATA)
 });
 
 boardRouter.post("/getPostList", async (req: Request, res: Response) => {
@@ -17,7 +25,13 @@ boardRouter.post("/getPostList", async (req: Request, res: Response) => {
 
     const POST_ID = req.body.POST_ID;
 
-    res.send("Func : Get Post List")
+    const API_RESULT_DATA: API_DATA = {
+        RESULT_CODE: 200,
+        RESULT_MSG: "OK",
+        RESULT_DATA: {}
+    }
+
+    res.send(API_RESULT_DATA)
 });
 
 boardRouter.post("/updatePost", async (req: Request, res: Response) => {
@@ -27,7 +41,13 @@ boardRouter.post("/updatePost", async (req: Request, res: Response) => {
     const POST_ID = req.body.POST_ID;
     const POST_DATA = req.body.POST_DATA;
 
-    res.send("Func : Update Post")
+    const API_RESULT_DATA: API_DATA = {
+        RESULT_CODE: 200,
+        RESULT_MSG: "OK",
+        RESULT_DATA: {}
+    }
+
+    res.send(API_RESULT_DATA)
 });
 
 boardRouter.post("/deletePost", async (req: Request, res: Response) => {
@@ -36,7 +56,13 @@ boardRouter.post("/deletePost", async (req: Request, res: Response) => {
 
     const POST_ID = req.body.POST_ID;
 
-    res.send("Func : Delete Post")
+    const API_RESULT_DATA: API_DATA = {
+        RESULT_CODE: 200,
+        RESULT_MSG: "OK",
+        RESULT_DATA: {}
+    }
+
+    res.send(API_RESULT_DATA)
 });
 
 boardRouter.post("/getRecommend", async (req: Request, res: Response) => {
@@ -45,7 +71,13 @@ boardRouter.post("/getRecommend", async (req: Request, res: Response) => {
 
     const POST_ID = req.body.POST_ID;
 
-    res.send("Func : Get Recommend")
+    const API_RESULT_DATA: API_DATA = {
+        RESULT_CODE: 200,
+        RESULT_MSG: "OK",
+        RESULT_DATA: {}
+    }
+
+    res.send(API_RESULT_DATA)
 });
 
 boardRouter.post("/updateRecommend", async (req: Request, res: Response) => {
@@ -55,7 +87,13 @@ boardRouter.post("/updateRecommend", async (req: Request, res: Response) => {
     const POST_ID = req.body.POST_ID;
     const POST_RECOMMEND = req.body.POST_RECOMMEND;
 
-    res.send("Func : Update Recommend")
+    const API_RESULT_DATA: API_DATA = {
+        RESULT_CODE: 200,
+        RESULT_MSG: "OK",
+        RESULT_DATA: {}
+    }
+
+    res.send(API_RESULT_DATA)
 });
 
 export default boardRouter;
