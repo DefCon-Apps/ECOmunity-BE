@@ -61,6 +61,8 @@ export const getPostListDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: 
         return RESULT_DATA;
     }
 
+    RESULT_DATA = await getFirebaseDBList(POST_TYPE);
+
     return RESULT_DATA
 }
 
