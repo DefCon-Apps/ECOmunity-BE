@@ -186,12 +186,6 @@ const addFirebaseDB = async (collectionID: string, documentID: string, updateDat
     }
 
     const fbDocument = doc(firebaseDB, collectionID, documentID);
-    const fbDocumentRef = await getDoc(fbDocument);
-    if(!fbDocumentRef.exists()){
-        RESULT_DATA.RESULT_CODE = 100;
-        RESULT_DATA.RESULT_MSG = "No Such Database";
-        return RESULT_DATA;
-    }
 
     try{
         RESULT_DATA.RESULT_CODE = 200;
@@ -316,6 +310,10 @@ const setFirebaseDB = async (collectionID: string, documentID: string, updateDat
     const fbDocument = doc(firebaseDB, collectionID, documentID);
     const fbDocumentRef = await getDoc(fbDocument);
     if(!fbDocumentRef.exists()){
+        if(collectionID == "board" || collectionID == "notice"){
+            return addFirebaseDB(collectionID, documentID, updateData);
+        }
+
         RESULT_DATA.RESULT_CODE = 100;
         RESULT_DATA.RESULT_MSG = "No Such Database";
         return RESULT_DATA;
