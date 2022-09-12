@@ -46,6 +46,7 @@ boardRouter.post("/updatePost", async (req: Request, res: Response) => {
         POST_DATE: POST_DATA_DATE,
         POST_CONTENT: POST_DATA_CONTENT,
         POST_IMAGE: POST_DATA_IMAGE,
+        POST_RECOMMEND: 0,
         POST_TITLE: POST_DATA_TITLE
     }
 

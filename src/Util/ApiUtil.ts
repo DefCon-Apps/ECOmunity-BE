@@ -9,6 +9,7 @@ export interface API_POST_DATA {
     POST_DATE: string,
     POST_CONTENT: string,
     POST_IMAGE: string,
+    POST_RECOMMEND: number,
     POST_TITLE: string
 }
 
@@ -22,6 +23,7 @@ export interface API_POST_LIST_ITEM {
     POST_AUTHOR: string,
     POST_DATE: string,
     POST_ID: string,
+    POST_RECOMMEND: number,
     POST_TITLE: string
 }
 

@@ -121,6 +121,12 @@ export const updateRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTI
         return RESULT_DATA;
     }
 
+    const POST_RECOMMEND_DATA = {
+        POST_RECOMMEND: POST_RECOMMEND
+    }
+
+    RESULT_DATA = await setFirebaseDB(POST_TYPE, POST_ID, POST_RECOMMEND_DATA);
+
     return RESULT_DATA
 }
 
