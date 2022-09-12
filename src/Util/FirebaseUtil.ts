@@ -1,7 +1,7 @@
 import { FirebaseApp, initializeApp } from "firebase/app";
-import { deleteDoc, doc, Firestore, getDoc, getFirestore, updateDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, updateDoc } from "firebase/firestore";
 
-import {API_DATA, API_POST_DATA, API_USER_INFO} from "./ApiUtil";
+import {API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO} from "./ApiUtil";
 
 import dotenv from "dotenv";
 import * as AuthUtil from "./AuthUtil";
@@ -176,14 +176,14 @@ export const setUserInfoDB = async (UID: string, TOKEN: string, USER_INFO: API_U
     return RESULT_DATA;
 };
 
-const deleteFirebaseDB = async (collection: string, document: string) => {
+const deleteFirebaseDB = async (collectionID: string, documentID: string) => {
     const RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
         RESULT_DATA: {}
     }
 
-    const fbDocument = doc(firebaseDB, collection, document);
+    const fbDocument = doc(firebaseDB, collectionID, documentID);
     const fbDocumentRef = await getDoc(fbDocument);
     if(!fbDocumentRef.exists()){
         RESULT_DATA.RESULT_CODE = 100;
@@ -204,14 +204,14 @@ const deleteFirebaseDB = async (collection: string, document: string) => {
     return RESULT_DATA;
 }
 
-const getFirebaseDB = async (collection: string, document: string) => {
+const getFirebaseDB = async (collectionID: string, documentID: string) => {
     const RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
         RESULT_DATA: {}
     }
 
-    const fbDocument = await getDoc(doc(firebaseDB, collection, document));
+    const fbDocument = await getDoc(doc(firebaseDB, collectionID, documentID));
     if(!fbDocument.exists()){
         RESULT_DATA.RESULT_CODE = 100;
         RESULT_DATA.RESULT_MSG = "No Such Database";
@@ -230,14 +230,60 @@ const getFirebaseDB = async (collection: string, document: string) => {
     return RESULT_DATA;
 }
 
-const setFirebaseDB = async (collection: string, document: string, updateData: object) => {
+const getFirebaseDBList = async (collectionID: string) => {
     const RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
         RESULT_DATA: {}
     }
 
-    const fbDocument = doc(firebaseDB, collection, document);
+    const fbDocument = await getDocs(collection(firebaseDB, collectionID));
+    if(!fbDocument.empty){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = "No Such Database";
+        return RESULT_DATA;
+    }
+
+    const POST_IS_NOTICE = (collectionID == "notice");
+
+    try{
+        let POST_COUNT = 0;
+        let POST_LIST: Array<API_POST_LIST_ITEM> = [];
+
+        fbDocument.forEach((curDoc) => {
+            POST_COUNT++;
+            POST_LIST.push({
+                POST_AUTHOR: curDoc.get("POST_AUTHOR"),
+                POST_DATE: curDoc.get("POST_DATE"),
+                POST_ID: curDoc.get("POST_ID"),
+                POST_RECOMMEND: curDoc.get("POST_RECOMMEND"),
+                POST_TITLE: curDoc.get("POST_TITLE")
+            })
+        })
+
+        RESULT_DATA.RESULT_CODE = 200;
+        RESULT_DATA.RESULT_MSG = "Success";
+        RESULT_DATA.RESULT_DATA = {
+            POST_COUNT: POST_COUNT,
+            POST_IS_NOTICE: POST_IS_NOTICE,
+            POST_LIST: POST_LIST
+        }
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = error as string;
+    }
+
+    return RESULT_DATA;
+}
+
+const setFirebaseDB = async (collectionID: string, documentID: string, updateData: object) => {
+    const RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
+
+    const fbDocument = doc(firebaseDB, collectionID, documentID);
     const fbDocumentRef = await getDoc(fbDocument);
     if(!fbDocumentRef.exists()){
         RESULT_DATA.RESULT_CODE = 100;
