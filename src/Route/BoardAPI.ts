@@ -14,18 +14,6 @@ boardRouter.post("/deletePost", (req: Request, res: Response) => {
     res.send("Func : Delete Post")
 });
 
-boardRouter.post("/getComment", (req: Request, res: Response) => {
-    res.send("Func : Get Comment")
-});
-
-boardRouter.post("/updateComment", (req: Request, res: Response) => {
-    res.send("Func : Update Comment")
-});
-
-boardRouter.post("/deleteComment", (req: Request, res: Response) => {
-    res.send("Func : Delete Comment")
-});
-
 boardRouter.post("/getRecommend", (req: Request, res: Response) => {
     res.send("Func : Get Recommend")
 });
