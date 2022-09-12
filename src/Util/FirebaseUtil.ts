@@ -32,7 +32,7 @@ export const getPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: bool
     return RESULT_DATA
 }
 
-export const getListPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean): Promise<API_DATA> => {
+export const getPostListDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean): Promise<API_DATA> => {
     let RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
