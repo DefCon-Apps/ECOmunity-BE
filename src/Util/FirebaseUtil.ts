@@ -81,6 +81,8 @@ export const deletePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: b
         return RESULT_DATA;
     }
 
+    RESULT_DATA = await deleteFirebaseDB(POST_TYPE, POST_ID);
+
     return RESULT_DATA
 }
 
