@@ -39,6 +39,8 @@ export const getPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: bool
         return RESULT_DATA;
     }
 
+    RESULT_DATA = await getFirebaseDB(POST_TYPE, POST_ID);
+
     return RESULT_DATA
 }
 
@@ -83,26 +85,6 @@ export const deletePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: b
 }
 
 export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string, POST_DATA: API_POST_DATA): Promise<API_DATA> => {
-    const POST_TYPE = POST_IS_NOTICE ? "notice" : "board";
-    let RESULT_DATA: API_DATA = {
-        RESULT_CODE: 0,
-        RESULT_MSG: "Ready",
-        RESULT_DATA: {}
-    }
-
-    try{
-        AuthUtil.verifyToken(TOKEN);
-    }catch(error){
-        RESULT_DATA.RESULT_CODE = 100;
-        RESULT_DATA.RESULT_MSG = error as string;
-
-        return RESULT_DATA;
-    }
-
-    return RESULT_DATA
-}
-
-export const getRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string): Promise<API_DATA> => {
     const POST_TYPE = POST_IS_NOTICE ? "notice" : "board";
     let RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
