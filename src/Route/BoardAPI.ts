@@ -17,7 +17,7 @@ boardRouter.post("/getPostList", async (req: Request, res: Response) => {
 
     const POST_ID = req.body.POST_ID;
 
-    res.send("Func : Get Post")
+    res.send("Func : Get Post List")
 });
 
 boardRouter.post("/updatePost", async (req: Request, res: Response) => {
