@@ -9,7 +9,6 @@ export interface API_POST_DATA {
     POST_DATE: string,
     POST_CONTENT: string,
     POST_IMAGE: string,
-    POST_RECOMMEND: number,
     POST_TITLE: string
 }
 
