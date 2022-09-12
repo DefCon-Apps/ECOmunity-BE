@@ -1,7 +1,7 @@
 export interface API_DATA {
     RESULT_CODE: number,
     RESULT_MSG: string,
-    RESULT_DATA: API_POST_DATA | API_USER_INFO | object
+    RESULT_DATA: API_POST_DATA | API_POST_LIST | API_USER_INFO | object
 }
 
 export interface API_POST_DATA {
