@@ -1,7 +1,7 @@
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { doc, Firestore, getDoc, getFirestore, updateDoc } from "firebase/firestore";
 
-import { API_DATA, API_USER_INFO } from "./ApiUtil";
+import {API_DATA, API_POST_DATA, API_USER_INFO} from "./ApiUtil";
 
 import dotenv from "dotenv";
 import * as AuthUtil from "./AuthUtil";
@@ -21,6 +21,30 @@ export const initFirebase = () => {
     firebaseApp =  initializeApp(firebaseConfig);
     firebaseDB = getFirestore();
 };
+
+export const getPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string) => {
+
+}
+
+export const getListPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean) => {
+
+}
+
+export const deletePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string) => {
+
+}
+
+export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string, POST_DATA: API_POST_DATA) => {
+
+}
+
+export const getRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string) => {
+
+}
+
+export const updateRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string, POST_RECOMMEND: number) => {
+
+}
 
 export const getUserInfoDB = async (UID: string, TOKEN: string): Promise<API_DATA> => {
     let RESULT_DATA: API_DATA = {
