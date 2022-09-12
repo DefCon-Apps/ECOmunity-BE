@@ -50,6 +50,7 @@ boardRouter.post("/updatePost", async (req: Request, res: Response) => {
         POST_AUTHOR: POST_DATA_AUTHOR,
         POST_DATE: POST_DATA_DATE,
         POST_CONTENT: POST_DATA_CONTENT,
+        POST_ID: POST_ID,
         POST_IMAGE: POST_DATA_IMAGE,
         POST_TITLE: POST_DATA_TITLE
     }
