@@ -23,6 +23,7 @@ export const initFirebase = () => {
 };
 
 export const getPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string): Promise<API_DATA> => {
+    const POST_TYPE = POST_IS_NOTICE ? "notice" : "board";
     let RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
@@ -42,6 +43,7 @@ export const getPostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: bool
 }
 
 export const getPostListDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean): Promise<API_DATA> => {
+    const POST_TYPE = POST_IS_NOTICE ? "notice" : "board";
     let RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
@@ -61,6 +63,7 @@ export const getPostListDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: 
 }
 
 export const deletePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string): Promise<API_DATA> => {
+    const POST_TYPE = POST_IS_NOTICE ? "notice" : "board";
     let RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
@@ -80,6 +83,7 @@ export const deletePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: b
 }
 
 export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string, POST_DATA: API_POST_DATA): Promise<API_DATA> => {
+    const POST_TYPE = POST_IS_NOTICE ? "notice" : "board";
     let RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
@@ -99,6 +103,7 @@ export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: b
 }
 
 export const getRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string): Promise<API_DATA> => {
+    const POST_TYPE = POST_IS_NOTICE ? "notice" : "board";
     let RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
@@ -118,6 +123,7 @@ export const getRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTICE:
 }
 
 export const updateRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: boolean, POST_ID: string, POST_RECOMMEND: number): Promise<API_DATA> => {
+    const POST_TYPE = POST_IS_NOTICE ? "notice" : "board";
     let RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
         RESULT_MSG: "Ready",
