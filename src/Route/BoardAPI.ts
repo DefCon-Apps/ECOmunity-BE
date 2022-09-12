@@ -86,11 +86,7 @@ boardRouter.post("/updateRecommend", async (req: Request, res: Response) => {
     const POST_IS_NOTICE = req.body.POST_IS_NOTICE;
     const POST_RECOMMEND = req.body.POST_RECOMMEND;
 
-    const API_RESULT_DATA: API_DATA = {
-        RESULT_CODE: 200,
-        RESULT_MSG: "OK",
-        RESULT_DATA: {}
-    }
+    const API_RESULT_DATA: API_DATA = await FirebaseUtil.updateRecommendDB(USER_UID, USER_TOKEN, POST_IS_NOTICE, POST_ID, POST_RECOMMEND);
 
     res.send(API_RESULT_DATA)
 });
