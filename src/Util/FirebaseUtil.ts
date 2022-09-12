@@ -1,5 +1,5 @@
 import { FirebaseApp, initializeApp } from "firebase/app";
-import { doc, Firestore, getDoc, getFirestore, updateDoc } from "firebase/firestore";
+import { deleteDoc, doc, Firestore, getDoc, getFirestore, updateDoc } from "firebase/firestore";
 
 import {API_DATA, API_POST_DATA, API_USER_INFO} from "./ApiUtil";
 
@@ -173,6 +173,34 @@ export const setUserInfoDB = async (UID: string, TOKEN: string, USER_INFO: API_U
 
     return RESULT_DATA;
 };
+
+const deleteFirebaseDB = async (collection: string, document: string) => {
+    const RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
+
+    const fbDocument = doc(firebaseDB, collection, document);
+    const fbDocumentRef = await getDoc(fbDocument);
+    if(!fbDocumentRef.exists()){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = "No Such Database";
+        return RESULT_DATA;
+    }
+
+    try{
+        RESULT_DATA.RESULT_CODE = 200;
+        RESULT_DATA.RESULT_MSG = "Success";
+
+        await deleteDoc(fbDocument);
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = error as string;
+    }
+
+    return RESULT_DATA;
+}
 
 const getFirebaseDB = async (collection: string, document: string) => {
     const RESULT_DATA: API_DATA = {
