@@ -39,6 +39,7 @@ boardRouter.post("/updatePost", async (req: Request, res: Response) => {
     const USER_TOKEN = req.body.USER_TOKEN;
 
     const POST_ID = req.body.POST_ID;
+    
     const POST_AUTHOR = req.body.POST_DATA.POST_AUTHOR;
     const POST_DATE = req.body.POST_DATA.POST_DATE;
     const POST_CONTENT = req.body.POST_DATA.POST_CONTENT;
