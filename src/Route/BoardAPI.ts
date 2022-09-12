@@ -49,8 +49,4 @@ boardRouter.post("/updateRecommend", async (req: Request, res: Response) => {
     res.send("Func : Update Recommend")
 });
 
-boardRouter.post("/deleteRecommend", async (req: Request, res: Response) => {
-    res.send("Func : Delete Recommend")
-});
-
 export default boardRouter;
