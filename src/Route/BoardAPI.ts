@@ -24,7 +24,6 @@ boardRouter.post("/getPostList", async (req: Request, res: Response) => {
     const USER_UID = req.body.USER_UID;
     const USER_TOKEN = req.body.USER_TOKEN;
 
-    const POST_ID = req.body.POST_ID;
     const POST_IS_NOTICE = req.body.POST_IS_NOTICE;
 
     const API_RESULT_DATA: API_DATA = {
