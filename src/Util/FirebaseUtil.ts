@@ -1,7 +1,7 @@
 import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
 import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, setDoc, updateDoc } from "firebase/firestore";
 
-import { API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO } from "./ApiUtil";
+import {API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO, API_USER_INFO_POSTS} from "./ApiUtil";
 
 import dotenv from "dotenv";
 import * as AuthUtil from "./AuthUtil";
@@ -106,6 +106,17 @@ export const updatePostDB = async (UID: string, TOKEN: string, POST_IS_NOTICE: b
     }
 
     RESULT_DATA = await setFirebaseDB(POST_TYPE, POST_ID, POST_DATA);
+
+    const curPostData = {
+        POST_ID: POST_ID,
+        POST_IS_NOTICE: POST_IS_NOTICE
+    }
+    const curUserInfo = (await getUserInfoDB(UID, TOKEN)).RESULT_DATA as API_USER_INFO;
+    if(!curUserInfo.USER_POSTS.includes(curPostData)){
+        curUserInfo.USER_POSTS.push(curPostData);
+    }
+
+    await setUserInfoDB(UID, TOKEN, curUserInfo);
 
     return RESULT_DATA
 }
