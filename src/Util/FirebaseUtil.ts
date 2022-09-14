@@ -1,7 +1,7 @@
 import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
 import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, setDoc, updateDoc } from "firebase/firestore";
 
-import {API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO, API_USER_INFO_POSTS} from "./ApiUtil";
+import { API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO } from "./ApiUtil";
 
 import dotenv from "dotenv";
 import * as AuthUtil from "./AuthUtil";
@@ -146,6 +146,27 @@ export const updateRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTI
 
     return RESULT_DATA
 }
+
+export const addUserInfoDB = async (UID: string, TOKEN: string, USER_INFO: API_USER_INFO): Promise<API_DATA> => {
+    let RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
+
+    try{
+        AuthUtil.verifyToken(TOKEN);
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = error as string;
+
+        return RESULT_DATA;
+    }
+
+    RESULT_DATA = await addFirebaseDB("profile", UID, USER_INFO);
+
+    return RESULT_DATA;
+};
 
 export const getUserInfoDB = async (UID: string, TOKEN: string): Promise<API_DATA> => {
     let RESULT_DATA: API_DATA = {
