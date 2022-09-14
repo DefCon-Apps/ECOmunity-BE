@@ -147,6 +147,25 @@ export const updateRecommendDB = async (UID: string, TOKEN: string, POST_IS_NOTI
     return RESULT_DATA
 }
 
+export const addUserInfoDB = async (UID: string, TOKEN: string, USER_INFO: API_USER_INFO): Promise<API_DATA> => {
+    let RESULT_DATA: API_DATA = {
+        RESULT_CODE: 0,
+        RESULT_MSG: "Ready",
+        RESULT_DATA: {}
+    }
+
+    try{
+        AuthUtil.verifyToken(TOKEN);
+    }catch(error){
+        RESULT_DATA.RESULT_CODE = 100;
+        RESULT_DATA.RESULT_MSG = error as string;
+
+        return RESULT_DATA;
+    }
+    
+    return RESULT_DATA;
+};
+
 export const getUserInfoDB = async (UID: string, TOKEN: string): Promise<API_DATA> => {
     let RESULT_DATA: API_DATA = {
         RESULT_CODE: 0,
