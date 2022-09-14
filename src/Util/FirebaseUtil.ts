@@ -1,7 +1,7 @@
 import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
 import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, setDoc, updateDoc } from "firebase/firestore";
 
-import {API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO, API_USER_INFO_POSTS} from "./ApiUtil";
+import {API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO } from "./ApiUtil";
 
 import dotenv from "dotenv";
 import * as AuthUtil from "./AuthUtil";
