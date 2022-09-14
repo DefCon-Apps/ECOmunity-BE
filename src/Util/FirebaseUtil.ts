@@ -162,7 +162,7 @@ export const addUserInfoDB = async (UID: string, TOKEN: string, USER_INFO: API_U
 
         return RESULT_DATA;
     }
-    
+
     return RESULT_DATA;
 };
 
