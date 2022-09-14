@@ -21,11 +21,13 @@ profileRouter.post("/updateUserInfo", async (req: Request, res: Response) => {
     const USER_INFO_NAME = req.body.USER_INFO.USER_NAME;
     const USER_INFO_EMAIL = req.body.USER_INFO.USER_EMAIL;
     const USER_INFO_PHONE = req.body.USER_INFO.USER_PHONE;
+    const USER_INFO_POINT = req.body.USER_INFO.USER_POINT;
 
     const USER_INFO_UPDATE: API_USER_INFO = {
         USER_NAME: USER_INFO_NAME,
         USER_EMAIL: USER_INFO_EMAIL,
-        USER_PHONE: USER_INFO_PHONE
+        USER_PHONE: USER_INFO_PHONE,
+        USER_POINT: USER_INFO_POINT
     }
 
     const API_RESULT_DATA: API_DATA = await FirebaseUtil.setUserInfoDB(USER_UID, USER_TOKEN, USER_INFO_UPDATE);
