@@ -163,6 +163,8 @@ export const addUserInfoDB = async (UID: string, TOKEN: string, USER_INFO: API_U
         return RESULT_DATA;
     }
 
+    RESULT_DATA = await addFirebaseDB("profile", UID, USER_INFO);
+
     return RESULT_DATA;
 };
 
