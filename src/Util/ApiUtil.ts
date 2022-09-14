@@ -29,5 +29,12 @@ export interface API_POST_LIST_ITEM {
 export interface API_USER_INFO {
     USER_NAME: string,
     USER_EMAIL: string,
-    USER_PHONE: string
+    USER_PHONE: string,
+    USER_POINT: string
+    USER_POSTS: Array<API_USER_INFO_POSTS>
+}
+
+export interface API_USER_INFO_POSTS {
+    POST_ID: string,
+    POST_IS_NOTICE: boolean
 }
