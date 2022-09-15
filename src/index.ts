@@ -3,10 +3,13 @@ import express, { Request, Response } from "express";
 import boardRouter from "./Route/BoardAPI";
 import profileRouter from "./Route/ProfileAPI";
 
+import * as CorsUtil from "./Util/CorsUtil";
 import * as AuthUtil from "./Util/AuthUtil";
 import * as FirebaseUtil from "./Util/FirebaseUtil";
 
 const app = express();
+
+CorsUtil.setCors(app);
 
 AuthUtil.initFirebase();
 FirebaseUtil.initFirebase();

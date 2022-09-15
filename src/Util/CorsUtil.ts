@@ -2,7 +2,7 @@ import cors, { CorsOptions, CorsRequest } from "cors";
 import { Express } from "express";
 
 export const setCors = (app: Express) => {
-    const corsList = [process.env.URL_DEV, process.env.URL_PUB];
+    const corsList = [process.env.CORS_URL_DEV, process.env.CORS_URL_PUB];
     const corsOptions = {
         origin: (origin: string | undefined, callback: (err: Error | null, options?: boolean | undefined) => void) => {
             if(corsList.indexOf(origin) !== -1){
