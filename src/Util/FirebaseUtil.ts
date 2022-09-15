@@ -294,7 +294,7 @@ const getFirebaseDBList = async (collectionID: string) => {
     }
 
     const fbDocument = await getDocs(collection(firebaseDB, collectionID));
-    if(!fbDocument.empty){
+    if(fbDocument.empty){
         RESULT_DATA.RESULT_CODE = 100;
         RESULT_DATA.RESULT_MSG = "No Such Database";
         return RESULT_DATA;
@@ -311,7 +311,7 @@ const getFirebaseDBList = async (collectionID: string) => {
             POST_LIST.push({
                 POST_AUTHOR: curDoc.get("POST_AUTHOR"),
                 POST_DATE: curDoc.get("POST_DATE"),
-                POST_ID: curDoc.get("POST_ID"),
+                POST_ID: curDoc.id,
                 POST_IMAGE: curDoc.get("POST_IMAGE"),
                 POST_RECOMMEND: curDoc.get("POST_RECOMMEND"),
                 POST_TITLE: curDoc.get("POST_TITLE")
