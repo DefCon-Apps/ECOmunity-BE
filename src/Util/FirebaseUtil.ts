@@ -1,5 +1,5 @@
 import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
-import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, orderBy, query, setDoc, updateDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, setDoc, updateDoc } from "firebase/firestore";
 
 import { API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO } from "./ApiUtil";
 
@@ -293,7 +293,7 @@ const getFirebaseDBList = async (collectionID: string) => {
         RESULT_DATA: {}
     }
 
-    const fbDocument = await getDocs(query(collection(firebaseDB, collectionID), orderBy("isPinned", "desc")));
+    const fbDocument = await getDocs(collection(firebaseDB, collectionID));
     if(fbDocument.empty){
         RESULT_DATA.RESULT_CODE = 100;
         RESULT_DATA.RESULT_MSG = "No Such Database";
