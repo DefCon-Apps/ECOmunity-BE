@@ -318,6 +318,8 @@ const getFirebaseDBList = async (collectionID: string) => {
             })
         })
 
+        POST_LIST.reverse();
+
         RESULT_DATA.RESULT_CODE = 200;
         RESULT_DATA.RESULT_MSG = "Success";
         RESULT_DATA.RESULT_DATA = {
