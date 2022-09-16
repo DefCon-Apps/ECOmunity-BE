@@ -5,7 +5,6 @@ import { API_DATA, API_POST_DATA, API_POST_LIST_ITEM, API_USER_INFO } from "./Ap
 
 import dotenv from "dotenv";
 import * as AuthUtil from "./AuthUtil";
-import { firestore } from "firebase-admin";
 
 dotenv.config();
 const firebaseConfig: FirebaseOptions = {
@@ -294,7 +293,7 @@ const getFirebaseDBList = async (collectionID: string) => {
         RESULT_DATA: {}
     }
 
-    const fbDocument = await getDocs(query(collection(firebaseDB, collectionID), orderBy(firestore.FieldPath.documentId(), "desc")));
+    const fbDocument = await getDocs(query(collection(firebaseDB, collectionID), orderBy("isPinned", "desc")));
     if(fbDocument.empty){
         RESULT_DATA.RESULT_CODE = 100;
         RESULT_DATA.RESULT_MSG = "No Such Database";
